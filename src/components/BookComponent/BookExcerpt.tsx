@@ -65,7 +65,7 @@ export default function BookExcerpt() {
               data-density="hard"
             >
               <Image
-                src="/excerpts/hero-bg.png"
+                src="/excerpts/excerpt-home.png"
                 alt="Book Cover"
                 fill
                 className="object-cover rounded-xl"
@@ -81,10 +81,10 @@ export default function BookExcerpt() {
             </div>
 
             {/* INSIDE PAGES */}
-            {[1, 2, 3].map((num) => (
+            {[1, 2, 3,4,5,6].map((num) => (
               <div key={num} className="relative w-full h-full">
                 <Image
-                  src={`/excerpts/${num}.png`}
+                  src={`/excerpts/excerpt-${num}.png`}
                   alt={`Excerpt Page ${num}`}
                   fill
                   className="object-cover"
@@ -96,7 +96,7 @@ export default function BookExcerpt() {
             {/* BACK COVER */}
             <div className="relative w-full h-full" data-density="hard">
               <Image
-                src="/excerpts/hero-bg.png"
+                src="/excerpts/excerpt-back.png"
                 alt="Back Cover"
                 fill
                 className="object-cover"

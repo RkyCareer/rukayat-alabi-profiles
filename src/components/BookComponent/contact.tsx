@@ -106,7 +106,7 @@ export function Contact() {
                       <FormItem>
                         <FormControl>
                           <Input
-                            placeholder="John Doe"
+                            placeholder="name"
                             className="mt-2 h-12 text-base"
                             {...field}
                           />
@@ -125,7 +125,7 @@ export function Contact() {
                         <FormControl>
                           <Input
                             type="email"
-                            placeholder="john@example.com"
+                            placeholder="email"
                             className="mt-2 h-12 text-base"
                             {...field}
                           />

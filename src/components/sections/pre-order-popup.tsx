@@ -29,7 +29,7 @@ import {
 import Image from 'next/image';
 import author from "@/assets/1.png";
 
-// ✅ Validation schema
+//Validation schema
 const preorderSchema = z.object({
   full_name: z.string().min(2, { message: 'Full name must be at least 2 characters.' }),
   email: z.string().email({ message: 'Please enter a valid email address.' }),

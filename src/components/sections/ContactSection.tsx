@@ -12,7 +12,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Card } from '@/components/ui/card';
-import { Send, CheckCircle, Mail, Phone, MapPin } from 'lucide-react';
+import { Send, CheckCircle, Mail } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const contactSchema = z.object({
@@ -32,18 +32,18 @@ const contactInfo = [
     value: 'info@rukayatalabi.com',
     href: 'mailto:info@rukayatalabi.com'
   },
-  {
-    icon: Phone,
-    label: 'Phone',
-    value: '+1 (555) 123-4567',
-    href: 'tel:+15551234567'
-  },
-  {
-    icon: MapPin,
-    label: 'Location',
-    value: 'London, UK',
-    href: '#'
-  }
+  // {
+  //   icon: Phone,
+  //   label: 'Phone',
+  //   value: '+1 (555) 123-4567',
+  //   href: 'tel:+15551234567'
+  // },
+  // {
+  //   icon: MapPin,
+  //   label: 'Location',
+  //   value: 'London, UK',
+  //   href: '#'
+  // }
 ];
 
 export default function ContactSection() {

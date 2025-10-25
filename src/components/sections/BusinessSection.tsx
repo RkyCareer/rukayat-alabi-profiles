@@ -85,7 +85,7 @@ export default function BusinessSection() {
                   <div className="flex items-center justify-center h-8 w-8 rounded-full bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 shadow-md">
                     <achievement.icon className="h-4 w-4 text-white" />
                   </div>
-                  <h4 className="font-semibold text-slate-800 text-base">
+                  <h4 className="font-semibold text-slate-800 text-[12px] lg:text-base">
                     {achievement.label}
                   </h4>
                 </motion.div>

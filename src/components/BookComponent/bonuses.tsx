@@ -1,56 +1,64 @@
 'use client';
 
+import { useState} from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Gift, FileText, Video, Headphones, ArrowRight } from 'lucide-react';
+import { PreOrderPopup } from '../sections/pre-order-popup';
+import { useToast } from '@/hooks/use-toast';
 
 const bonuses = [
   {
     icon: FileText,
-    title:'Personalized Signed Copy of Limitless & Thriving',
+    title: 'Personalized Signed Copy of Limitless & Thriving',
     subtitle: 'A keepsake that inspires.',
     description:
-      'Receive an exclusive signed copy of Limitless & Thriving — personally autographed by Rukayat Alabi. Each signed edition is a reminder to keep believing, evolving, and thriving through every season of change.',
+      'Receive an exclusive signed copy of Limitless & Thriving, personally autographed by Rukayat Alabi. Each signed edition is a reminder to keep believing, evolving, and thriving through every season of change.',
   },
   {
     icon: Video,
     title: 'Exclusive Mini Guide: “10 Business & Career Trends to Thrive in 2026”',
-    subtitle:'Stay ahead of the curve',
+    subtitle: 'Stay ahead of the curve',
     description:
-      'Discover the top emerging trends shaping the future of work and entrepreneurship. This powerful digital guide will help you position yourself for success, adapt early, and make smart moves in 2026',
+      'Discover the top emerging trends shaping the future of work and entrepreneurship. This powerful digital guide will help you position yourself for success, adapt early, and make smart moves in 2026.',
   },
   {
     icon: Headphones,
     title: '20% Off Ticket to Limitless Without Borders 2026',
-    subtitle:'Be part of something extraordinary.',
+    subtitle: 'Be part of something extraordinary.',
     description:
-      'Join over 1,000+ visionaries, professionals, and founders for the next Limitless Without Borders event — the global gathering for growth and impact. Your pre-order gives you early access plus 20% off your 2026 ticket.',
+      'Join over 1,000+ visionaries, professionals, and founders for the next Limitless Without Borders event, the global gathering for growth and impact. Your pre order gives you early access plus 20% off your 2026 ticket.',
   },
   {
     icon: Gift,
     title: 'Free Pass: “Thriving Masterclass 2026”',
-    subtitle:'Learn. Evolve. Thrive.',
+    subtitle: 'Learn. Evolve. Thrive.',
     description:
-      'Gain exclusive access to Rukayat Alabi’s Thriving Masterclass 2026 — a live session on navigating change, building resilience, and designing a limitless life and career. Perfect for anyone ready to grow in 2026.',
-  },
-  {
-    icon: Gift,
-    title: 'Instant Access to the RKY Limitless Tribe',
-    subtitle:'Join a community that grows with you.',
-    description:
-      'Connect with ambitious professionals and founders who are committed to thriving. Get access to ongoing insights, live sessions, and opportunities within the RKY Limitless Tribe private community.',
-  },
-  {
-    icon: Gift,
-    title: '5% Off the “Idea to Income Accelerator (2026 Cohorts)”',
-    subtitle:'Turn your ideas into income.',
-    description:
-      'Enjoy an exclusive 5% discount on Rukayat’s signature Idea to Income Accelerator — the 10-week business coaching program designed to help you launch and scale your business in the UK with clarity, confidence, and systems.',
+      'Gain exclusive access to Rukayat Alabi’s Thriving Masterclass 2026, a live session on navigating change, building resilience, and designing a limitless life and career.',
   },
 ];
 
 export function Bonuses() {
+  const [showPopup, setShowPopup] = useState(false);
+  const { toast } = useToast();
+
+  const handleClaimBonus = () => {
+    console.log("POPOOOOO")
+    const hasSeen = localStorage.getItem('hasSeenPreOrderPopup');
+
+    if (hasSeen === 'true') {
+      toast({
+        title: 'You have already pre-ordered 🎉',
+        description: 'Thank you for claiming your bonuses earlier.',
+        variant: 'destructive',
+      });
+    } else {
+      setShowPopup(true);
+      //localStorage.setItem('hasSeenPreOrderPopup', 'true');
+    }
+  };
+
   return (
     <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background image with overlay */}
@@ -126,9 +134,10 @@ export function Bonuses() {
           <Card className="inline-block bg-gradient-to-r from-amber-600 to-amber-700 border-0 shadow-2xl">
             <CardContent className="p-8">
               <p className="text-white text-lg mb-4">
-                Pre-order today and claim all bonuses instantly
+                Pre order today and claim all bonuses instantly
               </p>
               <Button
+                onClick={handleClaimBonus}
                 size="lg"
                 className="bg-white text-amber-700 hover:bg-slate-100 px-8 py-6 text-lg font-semibold rounded-full shadow-lg transition-all hover:scale-105"
               >
@@ -137,6 +146,9 @@ export function Bonuses() {
               </Button>
             </CardContent>
           </Card>
+
+          {/* Popup Modal */}
+          {showPopup && <PreOrderPopup />}
         </motion.div>
       </div>
     </section>
