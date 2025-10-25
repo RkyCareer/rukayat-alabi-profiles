@@ -1,49 +1,36 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import { Trophy } from 'lucide-react';
 
-// Replace these with your actual logo images
-import aws from '@/assets/logos/Artboard-1-copy-10.png';
-import microsoft from '@/assets/logos/Artboard-1-copy-11.png';
-import google from '@/assets/logos/Artboard-1-copy-2.png';
-import oracle from '@/assets/logos/Artboard-1-copy-3.png';
-import oracle2 from '@/assets/logos/Artboard-1-copy-5.png';
-import oracle3 from '@/assets/logos/Artboard-1-copy-7.png';
-import oracle4 from '@/assets/logos/Artboard-1-copy-8.png';
-import ibm from '@/assets/logos/Artboard-1.png';
-//import salesforce from '@/assets/logos/salesforce.png';
-
-const companies = [
-  { name: 'Amazon Web Services', logo: aws },
-  { name: 'Microsoft', logo: microsoft },
-  { name: 'Google', logo: google },
-  { name: 'IBM', logo: ibm },
-  { name: 'Oracle', logo: oracle },
-  { name: 'Oracle2', logo: oracle2 },
-  { name: 'Oracle3', logo: oracle3 },
-  { name: 'Oracle4', logo: oracle4 },
-  
+const awards = [
+  'Top 25 Entrepreneurs Changing the Face of Education',
+  'Black British Business Awards Finalist',
+  'EdTech CEO of the Year',
+  'Black Tech Achievement Awards, UK – Finalist',
+  'Outstanding Coach & Mentor',
+  'Innovative Entrepreneur of the Year',
+  'Global Recognition Award',
 ];
 
 export default function TrustedBySection() {
   return (
-    <section className="py-4 bg-white overflow-hidden">
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Title */}
+    <section className="py-4 bg-amber-600 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8">
+    
         <motion.div
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-6"
         >
-          <p className="text-sm text-gray-600 mt-4 font-medium tracking-wide uppercase">
-            Trusted by Global Leaders
+          <p className="text-sm text-white mt-4 font-medium tracking-wide uppercase">
+            Recognition & Media Features
           </p>
         </motion.div>
 
-        {/* Scrolling Logos */}
+        {/* Scrolling Awards */}
         <div className="relative flex overflow-hidden">
           <motion.div
             className="flex gap-12 min-w-full"
@@ -52,22 +39,19 @@ export default function TrustedBySection() {
             }}
             transition={{
               repeat: Infinity,
-              duration: 20,
+              duration: 25,
               ease: 'linear',
             }}
           >
-            {[...companies, ...companies].map((company, index) => (
+            {[...awards, ...awards].map((award, index) => (
               <div
                 key={index}
-                className="flex-shrink-0  flex items-center justify-center hover:shadow-md transition"
+                className="flex items-center gap-3 flex-shrink-0 whitespace-nowrap px-4 py-2"
               >
-                <Image
-                  src={company.logo}
-                  alt={company.name}
-                  className="object-contain"
-                  width={300}
-                  height={300}
-                />
+                <Trophy className="w-6 h-6 text-white flex-shrink-0" />
+                <span className="text-lg font-medium text-white">
+                  {award}
+                </span>
               </div>
             ))}
           </motion.div>

@@ -31,8 +31,7 @@ export default function Footer() {
               <span className="text-xl font-bold">Rukayat Alabi</span>
             </div>
             <p className="text-gray-600 mb-6 max-w-md">
-              Empowering professionals to achieve career and business success through 
-              expert coaching, strategic guidance, and transformational leadership.
+            Empowering professionals and founders to rise, rebuild, and thrive , without limits.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((link) => {

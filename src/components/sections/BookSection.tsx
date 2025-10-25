@@ -1,138 +1,113 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Award, Users, Briefcase } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
-import book from '@/assets/book.png'; // ✅ Ensure this file exists (e.g., src/assets/book.png)
 import Link from 'next/link';
+import book from '@/assets/book.png';
+import podcast from '@/assets/podcast.png';
+import limitless from '@/assets/about_me.png';
 
-const achievements = [
+const featuredItems = [
   {
-    icon: Award,
-    label: 'Award-winning',
-    description: 'Sales Performance Coach',
+    title: 'My Book — Limitless & Thriving',
+    description:
+      'A heartfelt and practical guide for professionals and founders navigating change and new beginnings. Rediscover purpose, build confidence, and create your next chapter...',
+    image: book,
+    cta: {
+      text: 'Explore Book',
+      href: '/book',
+      style: 'bg-slate-800 text-white hover:bg-amber-700',
+    },
   },
   {
-    icon: Briefcase,
-    label: '16+ Years',
-    description: 'International Career',
+    title: 'The Limitless & Thriving Podcast',
+    description:
+      'Honest conversations with founders, professionals, and innovators redefining what it means to thrive. Tune in for stories of resilience, reinvention, and social impact.',
+    image: podcast,
+    cta: {
+      text: 'Listen Now',
+      href: 'https://www.limitlessandthrivingpodcast.com',
+      style: 'bg-amber-600 text-white hover:bg-slate-800',
+      external: true,
+    },
   },
   {
-    icon: Users,
-    label: 'Keynote',
-    description: 'Speaker & Leader',
+    title: 'Limitless Without Borders Event',
+    description:
+      'A global movement uniting 1,000+ professionals, founders, and changemakers each year to celebrate resilience, community, and transformation.',
+    image: limitless,
+    cta: {
+      text: 'Join the Movement',
+      href: '/events',
+      style: 'bg-slate-800 text-white hover:bg-amber-700',
+    },
   },
 ];
 
 export default function BookSection() {
   return (
-    <section className=" bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Grid with 2 columns on desktop */}
-          
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <section className="bg-white py-20">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Section Heading */}
+        <motion.div
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl lg:text-5xl font-bold mb-4">Featured Work</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Explore projects and platforms built to inspire resilience, purpose, and growth.
+          </p>
+        </motion.div>
 
-          {/* ✅ LEFT COLUMN — Content */}
-          <motion.div
-            initial={{ x: -60, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            viewport={{ once: true }}
-            className="space-y-8 order-2 lg:order-1 shadow-2xl p-8 rounded-2xl"
-          >
-            
-            <div>
+        {/* 3-column layout */}
+        <div className="grid md:grid-cols-3 gap-12">
+          {featuredItems.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ y: 40, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              viewport={{ once: true }}
+              className="flex flex-col items-center text-center border-t border-b border-gray-200 py-10 px-4 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300"
+            >
+               <h3 className="text-xl font-bold mb-4">{item.title}</h3>
+              <div className="relative w-full h-80 mb-6 rounded-xl overflow-hidden">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+
              
-             <motion.h1
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className=" flex flex-col py-4 gap-2 sm:flex-row items-start justify-start  text-2xl sm:text-4xl font-bold leading-tight"
-            >
-  
-              
-              <span className="block">LIMITLESS</span>
-              <span className="block text-amber-600">AND</span>
-              <span className="block ">THRIVING</span>
-            </motion.h1>
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                viewport={{ once: true }}
-                className="space-y-4 text-gray-700 text-center lg:text-left"
-              >
-               
-                <p>
-                  With a passion for driving innovation and unlocking potential,
-                  Rukayat helps professionals and organizations achieve extraordinary
-                  results through strategic guidance and transformational leadership.
-                </p>
-              </motion.div>
-            </div>
+              <p className="text-start text-gray-700 mb-6">{item.description}</p>
 
-            {/* ✅ Achievements Grid */}
-            <motion.div
-              initial={{ y: 30, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="grid grid-cols-1 sm:grid-cols-3 gap-6"
-            >
-              {achievements.map((achievement, index) => (
-                <motion.div
-                  key={achievement.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="text-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200"
+              {item.cta.external ? (
+                <a
+                  href={item.cta.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${item.cta.style} font-semibold px-6 py-3 rounded-lg flex items-center gap-2 transition-colors`}
                 >
-                  <achievement.icon className="h-8 w-8 text-amber-500 mx-auto mb-3" />
-                  <h4 className="font-bold text-slate-800 mb-1">{achievement.label}</h4>
-                  <p className="text-sm text-gray-600">{achievement.description}</p>
-                </motion.div>
-              ))}
+                  {item.cta.text}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+              ) : (
+                <Link
+                  href={item.cta.href}
+                  className={`${item.cta.style} font-semibold px-6 py-3 rounded-lg flex items-center gap-2 transition-colors`}
+                >
+                  {item.cta.text}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              )}
             </motion.div>
-
-            {/* ✅ CTA Button */}
-            <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-              viewport={{ once: true }}
-              className="flex justify-center lg:justify-start"
-            >
-              <Link 
-                href="/book"
-                className="flex items-center justify-center bg-slate-800 text-white hover:bg-amber-700 rounded-lg font-semibold px-8 py-3"
-              >
-                Explore Book
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </motion.div>
-          </motion.div>
-
-          {/* ✅ RIGHT COLUMN — Image with animation */}
-          <motion.div
-            initial={{ x: 80, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
-            viewport={{ once: true }}
-            className="relative w-full h-[700px] rounded-2xl overflow-hidden order-1 lg:order-2"
-          >
-            {/* Main Image */}
-            <Image
-              src={book}
-              alt="Rukayat Alabi"
-              fill
-              className="object-cover"
-              priority
-            />
-
-          
-          </motion.div>
-
+          ))}
         </div>
       </div>
     </section>

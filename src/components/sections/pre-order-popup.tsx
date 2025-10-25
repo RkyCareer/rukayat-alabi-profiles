@@ -76,7 +76,7 @@ export function PreOrderPopup() {
 
       localStorage.setItem('hasSeenPreOrderPopup', 'true');
       form.reset();
-      setIsSuccess(true); // ✅ Show success message
+      setIsSuccess(true); 
     } catch (error) {
       toast({
         title: 'Error sending message',
@@ -128,7 +128,7 @@ export function PreOrderPopup() {
                       Limited Time Offer!
                     </DialogTitle>
                     <DialogDescription className="text-slate-600 text-base mt-1">
-                      Pre-order now and get exclusive bonuses.
+                      Pre order now and get exclusive bonuses.
                     </DialogDescription>
                   </DialogHeader>
                 </div>
@@ -183,7 +183,7 @@ export function PreOrderPopup() {
                 </Form>
               </>
             ) : (
-              // ✅ Success message section
+              //Success message section
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -192,7 +192,7 @@ export function PreOrderPopup() {
               >
                 <CheckCircle className="w-16 h-16 text-green-500 mx-auto" />
                 <h2 className="text-2xl font-bold text-slate-800">
-                  Thank you for your pre-order!
+                  Thank you for your pre order!
                 </h2>
                 <p className="text-slate-600 text-base">
                   Your request has been received. I’ll reach out to you soon with more details.

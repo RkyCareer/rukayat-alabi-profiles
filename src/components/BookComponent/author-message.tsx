@@ -4,8 +4,9 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight, Heart } from 'lucide-react';
 import Image from 'next/image';
-import { Button } from '../ui/button';
+//import { Button } from '../ui/button';
 import author from '@/assets/3.png';
+import Link from 'next/link';
 
 export function AuthorMessage() {
   return (
@@ -104,13 +105,13 @@ export function AuthorMessage() {
                   </p>
 
                   <div className="pt-4">
-                    <Button
-                      size="lg"
-                      className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-6 text-lg font-semibold rounded-full shadow-2xl transition-all hover:scale-105"
-                    >
+                      <Link
+            href="https://selar.com/dh8866l8z6"
+              className="flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-6 text-lg font-semibold rounded-full shadow-2xl transition-all hover:scale-105"
+            >
                       Order Now
                       <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
+                    </Link>
                   </div>
                 </div>
               </CardContent>

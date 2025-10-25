@@ -1,56 +1,56 @@
 
 'use client';
 
-import { motion, useInView } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
+//import { useEffect, useRef, useState } from 'react';
 //import { Button } from '@/components/ui/button';
-import { ArrowRight, Award, Users, Briefcase } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
-import author from '@/assets/3.png';
+import author from '@/assets/about.jpg';
 import Link from 'next/link';
 
 // ✅ Simple count-up animation
-function CountUp({ end, duration = 2 }: { end: number; duration?: number }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
+// function CountUp({ end, duration = 2 }: { end: number; duration?: number }) {
+//   const [count, setCount] = useState(0);
+//   const ref = useRef(null);
+//   const inView = useInView(ref, { once: true });
 
-  useEffect(() => {
-    if (!inView) return;
-    let start = 0;
-    const increment = end / (duration * 60); // ~60fps
-    const interval = setInterval(() => {
-      start += increment;
-      if (start >= end) {
-        setCount(end);
-        clearInterval(interval);
-      } else {
-        setCount(Math.floor(start));
-      }
-    }, 16);
-    return () => clearInterval(interval);
-  }, [inView, end, duration]);
+//   useEffect(() => {
+//     if (!inView) return;
+//     let start = 0;
+//     const increment = end / (duration * 60); // ~60fps
+//     const interval = setInterval(() => {
+//       start += increment;
+//       if (start >= end) {
+//         setCount(end);
+//         clearInterval(interval);
+//       } else {
+//         setCount(Math.floor(start));
+//       }
+//     }, 16);
+//     return () => clearInterval(interval);
+//   }, [inView, end, duration]);
 
-  return <motion.span ref={ref}>{count}</motion.span>;
-}
+//   return <motion.span ref={ref}>{count}</motion.span>;
+// }
 
-const achievements = [
-  {
-    icon: Award,
-    label: 100,
-    description: 'businesses coached and scaled',
-  },
-  {
-    icon: Briefcase,
-    label: 1500,
-    description: 'career transformations',
-  },
-  {
-    icon: Users,
-    label: 1000,
-    description: 'event attendees',
-  },
-];
+// const achievements = [
+//   {
+//     icon: Award,
+//     label: 100,
+//     description: 'businesses coached and scaled',
+//   },
+//   {
+//     icon: Briefcase,
+//     label: 1500,
+//     description: 'career transformations',
+//   },
+//   {
+//     icon: Users,
+//     label: 1000,
+//     description: 'event attendees',
+//   },
+// ];
 
 export default function AboutSection() {
   return (
@@ -102,16 +102,27 @@ export default function AboutSection() {
                 className="space-y-4 text-gray-700 text-center lg:text-left"
               >
                 <p>
-                  I am Rukayat “Ruky” Alabi, a multi-award-winning entrepreneur, 
-                  career & business coach, and speaker helping professionals and 
-                  founders navigate change, build resilience, and create lasting 
-                  impact through strategy, technology, and social sustainability.
+                Rukayat “Ruky” Alabi is a multi award winning entrepreneur, author, digital empowerment, and global voice for resilience, reinvention, and inclusive growth through technology.
+   </p>
+                    <p>
+             She is the Founder and CEO of RKY Group, a multi brand ecosystem that empowers professionals and founders through career transformation, business growth, and community development.
                 </p>
+                <p>
+            With over 12 years of experience across the UK and Nigerian banking industries, Rukayat transitioned from corporate finance to tech entrepreneurship, building RKY Careers. This multi award winning EdTech company has helped over 5,000 professionals transition into tech and thrive in high demand industries.
+
+                </p>
+            
+                {/* <p>
+         Her work extends through initiatives like Limitless Without Borders, Apply Buddy, RKY Business Hub, and the Limitless & Thriving Podcast, all focused on helping individuals rise beyond limitations and build sustainable impact.
+                </p>
+                <p>
+         Rukayat’s journey embodies the power of turning change into opportunity. She continues to inspire professionals and entrepreneurs to embrace reinvention, pursue purpose, and thrive — without borders and without limits.
+   </p> */}
               </motion.div>
             </div>
 
             {/* Achievements Grid */}
-            <motion.div
+            {/* <motion.div
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -134,7 +145,7 @@ export default function AboutSection() {
                   <p className="text-sm text-gray-600">{achievement.description}</p>
                 </motion.div>
               ))}
-            </motion.div>
+            </motion.div> */}
 
             {/* CTA Buttons */}
             <motion.div
@@ -145,20 +156,20 @@ export default function AboutSection() {
               className="flex gap-4 justify-center lg:justify-start"
             >
                <Link 
-                 href="/contact"
+                 href="/about"
                  className="bg-amber-600 text-white hover:bg-slate-800 font-semibold px-8 py-3 rounded-md flex items-center gap-2 cursor-pointer transition-colors relative z-20" // Added z-20
                   >
              
-                Book Rukky
+                Learn more about Rukayat
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
-              <Link 
+              {/* <Link 
                  href="/book"
                  className="bg-white text-amber-600 hover:bg-slate-800 font-semibold px-8 py-3 rounded-md flex items-center gap-2 cursor-pointer transition-colors relative z-20" // Added z-20
                 >
                 Explore Book
                 <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
+            </Link> */}
             </motion.div>
           </motion.div>
         </div>

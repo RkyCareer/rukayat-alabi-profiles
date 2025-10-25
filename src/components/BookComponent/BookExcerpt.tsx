@@ -133,8 +133,8 @@ export default function BookExcerpt() {
         className="mt-8 sm:mt-10 text-center"
       >
         <a
-          href="/files/Limitless_Excerpt.pdf"
-          download="Limitless_Excerpt.pdf"
+          href="/files/excerpt.pdf"
+          download="excerpt.pdf"
           className="bg-amber-600 text-white font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-amber-500 transition"
         >
           Download Excerpt

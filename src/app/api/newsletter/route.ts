@@ -1,0 +1,40 @@
+// app/api/contact/route.ts
+import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
+
+
+export const dynamic = "force-dynamic";
+
+export async function POST(req: Request) {
+  try {
+    const data = await req.json();
+
+    const transporter = nodemailer.createTransport({
+      service: "Gmail",
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    const mailOptions = {
+      from: data.email,
+      to: process.env.EMAIL_RECEIVER,
+      subject: "Joining the Limitless Community  ",
+      html: `
+        <h2>New Member - Joining the Limitless Community</h2>
+        <p><strong>Email:</strong> ${data.email}</p>
+      `,
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    console.error("Email send error:", error);
+    return NextResponse.json(
+      { success: false, error: (error as Error).message },
+      { status: 500 }
+    );
+  }
+}

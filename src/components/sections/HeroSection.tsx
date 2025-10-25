@@ -4,21 +4,24 @@ import { motion } from 'framer-motion';
 //import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
-import rukayat from '@/assets/ruky.png';
-//import author from '@/assets/book_cover.jpg';
-import HeroImageCarousel from './HeroImageCarousel';
+//import rukayat from '@/assets/ruky.png';
+//import author from '@/assets/1.png';
+import author2 from '@/assets/hero-3.png';
+//import HeroImageCarousel from './HeroImageCarousel';
 import Link from 'next/link';
 
 
 export default function HeroSection() {
   return (
-    <section className="bg-slate-800 text-white relative overflow-hidden">
+    // <section className="bg-amber-600 text-white relative overflow-hidden">
+    <section className="bg-gradient-to-br from-rose-600 via-amber-600 to-amber-600 text-white rounded-lg shadow-lg relative overflow-hidden">
+
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-gradient-to-br from-amber-600/20 to-transparent" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-0 lg:py-0">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-0 py-0 lg:py-0">
         <div className="grid lg:grid-cols-2 gap-3 items-center">
           {/* Left Column - Text Content */}
           <motion.div
@@ -27,8 +30,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8 }}
             className="space-y-4"
           >
-            {/* Small tagline */}
-          
+            {/* Small tagline */}     
 
             {/* Main heading */}
             <motion.h1
@@ -42,8 +44,8 @@ export default function HeroSection() {
            <Image src={rukayat} width={200} height={30} alt="name" />
               </div> */}
               
-              <span className="block">LIMITLESS AND</span>
-              <span className="block text-amber-600">THRIVING</span>
+              <span className="block">Rukayat Alabi</span>
+              {/* <span className="block text-slate-600">THRIVING</span> */}
               {/* <span className="block italic">THRIVING</span> */}
             </motion.h1>
               <motion.p
@@ -52,7 +54,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-white text-lg font-medium tracking-wide"
             >
-          Empowering Change, Growth and Impact
+           Author, Speaker, Entrepreneur, and Visionary for Change
             </motion.p>
              {/* <Image
           src="/asset/hero-bg.png" // <-- Replace with your preferred bg
@@ -79,13 +81,13 @@ export default function HeroSection() {
   initial={{ y: 20, opacity: 0 }}
   animate={{ y: 0, opacity: 1 }}
   transition={{ duration: 0.6, delay: 0.7 }}
-  className="flex flex-col sm:flex-row gap-4 relative z-10" // Added z-10 here
+  className="flex flex-col sm:flex-row gap-4 relative z-10"
 >
   <Link 
     href="/contact"
-    className="bg-amber-600 text-white hover:bg-yellow-400 font-semibold px-8 py-3 rounded-md flex items-center gap-2 cursor-pointer transition-colors relative z-20" // Added z-20
+    className="bg-slate-800 text-white hover:bg-amber-600 hover:text-slate-800 font-semibold px-8 py-3 rounded-md flex items-center gap-2 cursor-pointer transition-colors relative z-20" // Added z-20
   >
-    Book Rukky
+    Engage Rukayat
     <ArrowRight className="ml-2 h-4 w-4" />
   </Link>
 
@@ -97,49 +99,36 @@ export default function HeroSection() {
     <ArrowRight className="ml-2 h-4 w-4" />
   </Link>
 
-  <a 
+
+  {/* <a 
     href="https://www.limitlessandthrivingpodcast.com"
     target="_blank"
     rel="noopener noreferrer"
-    className="bg-amber-600 text-white hover:bg-yellow-400 font-semibold px-8 py-3 rounded-md flex items-center gap-2 cursor-pointer transition-colors relative z-20" // Added z-20
+    className="bg-white text-slate-800 hover:bg-slate-800 hover:text-white font-semibold px-8 py-3 rounded-md flex items-center gap-2 cursor-pointer transition-colors relative z-20" // Added z-20
   >
     Podcast
     <ArrowRight className="ml-2 h-4 w-4" />
-  </a>
+  </a> */}
 </motion.div>
+    <motion.p
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-white text-xs font-medium tracking-wide"
+            >
+           Featured in Forbes, The Guardian, Business Insider, Arise TV, and more.
+            </motion.p>
 
           </motion.div>
 
-          {/* Right Column - Image/Visual */}
-         <motion.div
-  initial={{ scale: 0.8 }}
-  animate={{ scale: 1 }}
-  transition={{ duration: 1, delay: 0.5 }}
-  className="relative aspect-[4/5] rounded-2xl shadow-2xl overflow-hidden"
->
   {/* Main Image */}
-  {/* <Image
-    src={author} // ✅ Replace with your actual photo
+  <Image
+    src={author2} 
     alt="Rukayat Alabi"
-    fill
     className="object-cover"
-    priority
-  /> */}
-  <HeroImageCarousel />
-
-  {/* Name Overlay */}
-  <div className="absolute bottom-6 left-1/2 -translate-x-1/2">
-    <Image
-      src={rukayat} // ✅ this should be your amber text image
-      alt="Rukayat Name"
-      width={250} // adjust as needed
-      height={80}
-      className="opacity-90"
-    />
-  </div>
-         </motion.div>
-
-
+    width={600}
+    height={600}
+  />
         </div>
       </div>
 

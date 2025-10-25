@@ -2,7 +2,7 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-// ✅ Prevent Next.js from trying to statically optimize this route
+
 export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
