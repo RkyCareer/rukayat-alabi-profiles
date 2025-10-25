@@ -1,4 +1,4 @@
-# BXtraordinary - Professional Consulting Website
+# Rukayat Alabi - Professional Consulting Website
 
 A modern, responsive website built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion, replicating the design and functionality of the BXtraordinary consulting website.
 
