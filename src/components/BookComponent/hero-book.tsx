@@ -67,7 +67,7 @@ export function HeroBook() {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <Link
-            href="https://selar.com/dh8866l8z6"
+            href="https://amzn.to/4nKDPvP"
               className="flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-6 text-lg font-semibold rounded-full shadow-2xl transition-all hover:scale-105"
             >
               Order Now

@@ -2,18 +2,17 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import scholarship from '@/assets/scholarship_banner.jpg';
+import scholarship from '@/assets/scholarship_image.png';
 
 export default function ScholarshipSection() {
   return (
-    <section className="relative py-16 w-full h-[400px] sm:h-[400px] lg:h-[500px] overflow-hidden">
+    <section className="relative flex items-center justify-center w-full h-[300px] sm:h-[400px] lg:h-[600px] overflow-hidden">
       {/* Background Image */}
       <Image
         src={scholarship}
         alt="Scholarship"
-        fill
-        className="w-full brightness-95 object-cover"
-        priority
+      width={1250}
+      height={550}
       />
 
       {/* Overlay Button */}

@@ -1,20 +1,15 @@
 'use client';
 
 import { motion } from 'framer-motion';
-//import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
-//import rukayat from '@/assets/ruky.png';
-//import author from '@/assets/1.png';
-import author2 from '@/assets/hero-3.png';
-//import HeroImageCarousel from './HeroImageCarousel';
+import author2 from '@/assets/hero_banner.png';
 import Link from 'next/link';
 
 
 export default function HeroSection() {
   return (
-    // <section className="bg-amber-600 text-white relative overflow-hidden">
-    <section className="bg-gradient-to-br from-rose-600 via-amber-600 to-amber-600 text-white rounded-lg shadow-lg relative overflow-hidden">
+      <section className="bg-gradient-to-br from-rose-600 via-amber-600 to-amber-600 text-white rounded-lg shadow-lg relative overflow-hidden">
 
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
@@ -30,7 +25,6 @@ export default function HeroSection() {
             transition={{ duration: 0.8 }}
             className="space-y-4"
           >
-            {/* Small tagline */}     
 
             {/* Main heading */}
             <motion.h1
@@ -39,14 +33,8 @@ export default function HeroSection() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight"
             >
-              {/* <div className="flex items-start justify-start">
-
-           <Image src={rukayat} width={200} height={30} alt="name" />
-              </div> */}
-              
+                         
               <span className="block">Rukayat Alabi</span>
-              {/* <span className="block text-slate-600">THRIVING</span> */}
-              {/* <span className="block italic">THRIVING</span> */}
             </motion.h1>
               <motion.p
               initial={{ y: 20, opacity: 0 }}
@@ -56,27 +44,7 @@ export default function HeroSection() {
             >
            Author, Speaker, Entrepreneur, and Visionary for Change
             </motion.p>
-             {/* <Image
-          src="/asset/hero-bg.png" // <-- Replace with your preferred bg
-          alt="Background texture"
-          fill
-          className="object-cover opacity-10" // control fade with opacity
-          priority
-        /> */}
-
-            {/* Description */}
-            {/* <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="space-y-2 text-lg text-gray-300"
-            >
-              <p className="font-semibold">Empowering Change,</p>
-              <p className="font-semibold">Growth, </p>
-              <p className="font-semibold">and Impact</p>
-            </motion.div> */}
-
-            {/* CTA Button */}
+          {/* CTA Button */}
                 <motion.div
   initial={{ y: 20, opacity: 0 }}
   animate={{ y: 0, opacity: 1 }}
@@ -99,16 +67,6 @@ export default function HeroSection() {
     <ArrowRight className="ml-2 h-4 w-4" />
   </Link>
 
-
-  {/* <a 
-    href="https://www.limitlessandthrivingpodcast.com"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="bg-white text-slate-800 hover:bg-slate-800 hover:text-white font-semibold px-8 py-3 rounded-md flex items-center gap-2 cursor-pointer transition-colors relative z-20" // Added z-20
-  >
-    Podcast
-    <ArrowRight className="ml-2 h-4 w-4" />
-  </a> */}
 </motion.div>
     <motion.p
               initial={{ y: 20, opacity: 0 }}

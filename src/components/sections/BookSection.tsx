@@ -47,7 +47,7 @@ const featuredItems = [
 
 export default function BookSection() {
   return (
-    <section className="bg-white py-20">
+    <section className="bg-white py-10">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Heading */}
         <motion.div

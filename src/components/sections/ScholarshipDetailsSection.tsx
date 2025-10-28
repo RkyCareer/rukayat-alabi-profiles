@@ -12,11 +12,10 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Card } from '@/components/ui/card';
-import { Send, CheckCircle, Mail, Phone, MapPin } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import Image from 'next/image';
 import author from '@/assets/about.jpg';
-import { GraduationCap, Bot, Briefcase, Globe, Podcast } from "lucide-react";
+import { GraduationCap, Bot, } from "lucide-react";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 
