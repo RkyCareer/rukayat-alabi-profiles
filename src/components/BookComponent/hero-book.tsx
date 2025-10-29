@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
+//import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
@@ -73,13 +73,12 @@ export function HeroBook() {
               Order Now
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-2 border-white text-amber-600 hover:bg-white hover:text-slate-900 px-8 py-6 text-lg font-semibold rounded-full transition-all hover:scale-105"
-            >
-              Read Excerpt
-            </Button>
+         <Link
+  href="#read-excerpt"
+  className="border-2 border-white text-white hover:bg-white hover:text-slate-900 px-8 py-6 text-lg font-semibold rounded-full transition-all hover:scale-105"
+>
+  Read Excerpt
+</Link>
           </motion.div>
 
           {/* Availability note */}

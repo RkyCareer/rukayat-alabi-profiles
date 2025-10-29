@@ -98,7 +98,7 @@ export default function ContactSection() {
 
   if (isSubmitted) {
     return (
-      <section className="py-20 bg-slate-800 text-white">
+      <section className="py-20 text-slate-800 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
@@ -124,7 +124,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section className="py-20 bg-slate-800 text-white">
+    <section className="py-20  text-slate-800 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ y: 30, opacity: 0 }}
@@ -134,7 +134,7 @@ export default function ContactSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">Get In Touch</h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
             Ready to transform your career or business? Let&apos;s discuss how we can work 
             together to achieve extraordinary results.
           </p>
@@ -148,7 +148,7 @@ export default function ContactSection() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <Card className="p-8 bg-white/10 backdrop-blur-sm border-white/20">
+            <Card className="p-8 bg-slate-800 backdrop-blur-sm border-white/20">
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
@@ -158,7 +158,7 @@ export default function ContactSection() {
                     <Input
                       id="name"
                       {...register('name')}
-                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-600"
+                      className="bg-white/10 border-white/20 text-white placeholder:text-white"
                       placeholder="Your name"
                     />
                     {errors.name && (
@@ -174,7 +174,7 @@ export default function ContactSection() {
                       id="email"
                       type="email"
                       {...register('email')}
-                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-600"
+                      className="bg-white/10 border-white/20 text-white placeholder:text-white"
                       placeholder="your@email.com"
                     />
                     {errors.email && (
@@ -190,7 +190,7 @@ export default function ContactSection() {
                   <Input
                     id="company"
                     {...register('company')}
-                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-600"
+                    className="bg-white/10 border-white/20 text-white placeholder:text-white"
                     placeholder="Your company (optional)"
                   />
                 </div>
@@ -202,7 +202,7 @@ export default function ContactSection() {
                   <Input
                     id="subject"
                     {...register('subject')}
-                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-600"
+                    className="bg-white/10 border-white/20 text-white placeholder:text-white"
                     placeholder="What would you like to discuss?"
                   />
                   {errors.subject && (
@@ -218,7 +218,7 @@ export default function ContactSection() {
                     id="message"
                     {...register('message')}
                     rows={6}
-                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-600 resize-none"
+                    className="bg-white/10 border-white/20 text-white placeholder:text-white resize-none"
                     placeholder="Tell Joy about your goals and how she can help..."
                   />
                   {errors.message && (
@@ -254,7 +254,7 @@ export default function ContactSection() {
           >
             <div>
               <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
-              <p className="text-gray-300 mb-8">
+              <p className="text-slate-800 mb-8">
                 Whether you&apos;re looking to transform your career, scale your business, 
                 or bring Joy in as a keynote speaker, let&apos;s connect and explore the 
                 possibilities together.
@@ -270,14 +270,14 @@ export default function ContactSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="flex items-center space-x-4 p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors duration-200"
+                  className="flex items-center space-x-4 p-4 rounded-lg bg-slate-800 hover:bg-slate-600 transition-colors duration-200"
                 >
                   <div className="bg-amber-600 text-slate-800 p-3 rounded-full">
                     <info.icon className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="font-medium">{info.label}</p>
-                    <p className="text-gray-300">{info.value}</p>
+                    <p className="font-medium text-white">{info.label}</p>
+                    <p className="text-white">{info.value}</p>
                   </div>
                 </motion.a>
               ))}

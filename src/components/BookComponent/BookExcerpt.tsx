@@ -21,7 +21,9 @@ export default function BookExcerpt() {
   };
 
   return (
-    <section className="py-16 sm:py-20 bg-slate-100 flex flex-col items-center justify-center">
+    <section
+       id="read-excerpt"
+    className="py-16 sm:py-20 bg-slate-100 flex flex-col items-center justify-center">
       <motion.h2
         initial={{ y: 20, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}

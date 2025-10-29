@@ -1,12 +1,13 @@
 'use client';
 
-import { useState} from 'react';
+//import { useState} from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+//import { Button } from '@/components/ui/button';
 import { Gift, FileText, Video, Headphones, ArrowRight } from 'lucide-react';
-import { PreOrderPopup } from '../sections/pre-order-popup';
-import { useToast } from '@/hooks/use-toast';
+//import { PreOrderPopup } from '../sections/pre-order-popup';
+//import { useToast } from '@/hooks/use-toast';
+import Link from 'next/link';
 
 const bonuses = [
   {
@@ -40,24 +41,24 @@ const bonuses = [
 ];
 
 export function Bonuses() {
-  const [showPopup, setShowPopup] = useState(false);
-  const { toast } = useToast();
+  //const [showPopup, setShowPopup] = useState(false);
+  //const { toast } = useToast();
 
-  const handleClaimBonus = () => {
-    console.log("POPOOOOO")
-    const hasSeen = localStorage.getItem('hasSeenPreOrderPopup');
+  // const handleClaimBonus = () => {
+  //   console.log("POPOOOOO")
+  //   const hasSeen = localStorage.getItem('hasSeenPreOrderPopup');
 
-    if (hasSeen === 'true') {
-      toast({
-        title: 'You have already pre-ordered 🎉',
-        description: 'Thank you for claiming your bonuses earlier.',
-        variant: 'destructive',
-      });
-    } else {
-      setShowPopup(true);
-      //localStorage.setItem('hasSeenPreOrderPopup', 'true');
-    }
-  };
+  //   if (hasSeen === 'true') {
+  //     toast({
+  //       title: 'You have already pre-ordered 🎉',
+  //       description: 'Thank you for claiming your bonuses earlier.',
+  //       variant: 'destructive',
+  //     });
+  //   } else {
+  //     setShowPopup(true);
+  //     //localStorage.setItem('hasSeenPreOrderPopup', 'true');
+  //   }
+  // };
 
   return (
     <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -136,19 +137,18 @@ export function Bonuses() {
               <p className="text-white text-lg mb-4">
                 Pre order today and claim all bonuses instantly
               </p>
-              <Button
-                onClick={handleClaimBonus}
-                size="lg"
-                className="bg-white text-amber-700 hover:bg-slate-100 px-8 py-6 text-lg font-semibold rounded-full shadow-lg transition-all hover:scale-105"
+              <Link               
+               href="/contact"
+              className="flex items-center justify-center bg-white text-amber-700 hover:bg-slate-100 px-8 py-6 text-lg font-semibold rounded-full shadow-lg transition-all hover:scale-105"
               >
                 Claim Your Bonuses Now
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+              </Link>
             </CardContent>
           </Card>
 
           {/* Popup Modal */}
-          {showPopup && <PreOrderPopup />}
+          {/* {showPopup && <PreOrderPopup />} */}
         </motion.div>
       </div>
     </section>

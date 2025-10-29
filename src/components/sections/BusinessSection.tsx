@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Award, Users, Briefcase, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import profile from '@/assets/speak.jpg';
-import profile3 from '@/assets/profile-3.jpg';
+import profile3 from '@/assets/profile-6.jpg';
 import profile5 from '@/assets/profile.jpg';
 import profile4 from '@/assets/about_me.png';
 import Link from 'next/link';

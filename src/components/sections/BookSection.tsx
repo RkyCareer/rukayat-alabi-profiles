@@ -72,15 +72,15 @@ export default function BookSection() {
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="flex flex-col items-center text-center border-t border-b border-gray-200 py-10 px-4 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300"
+              className="flex flex-col items-start text-center border-t border-b border-gray-200 py-10 px-4 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300"
             >
-               <h3 className="text-xl font-bold mb-4">{item.title}</h3>
+               <h3 className="text-sm md:text-xl font-bold mb-4">{item.title}</h3>
               <div className="relative w-full h-80 mb-6 rounded-xl overflow-hidden">
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
-                  className="object-cover hover:scale-105 transition-transform duration-500"
+                  className=" object-center hover:scale-105 transition-transform duration-500"
                 />
               </div>
 

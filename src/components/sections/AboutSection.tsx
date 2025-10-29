@@ -9,56 +9,13 @@ import Image from 'next/image';
 import author from '@/assets/about.jpg';
 import Link from 'next/link';
 
-// ✅ Simple count-up animation
-// function CountUp({ end, duration = 2 }: { end: number; duration?: number }) {
-//   const [count, setCount] = useState(0);
-//   const ref = useRef(null);
-//   const inView = useInView(ref, { once: true });
-
-//   useEffect(() => {
-//     if (!inView) return;
-//     let start = 0;
-//     const increment = end / (duration * 60); // ~60fps
-//     const interval = setInterval(() => {
-//       start += increment;
-//       if (start >= end) {
-//         setCount(end);
-//         clearInterval(interval);
-//       } else {
-//         setCount(Math.floor(start));
-//       }
-//     }, 16);
-//     return () => clearInterval(interval);
-//   }, [inView, end, duration]);
-
-//   return <motion.span ref={ref}>{count}</motion.span>;
-// }
-
-// const achievements = [
-//   {
-//     icon: Award,
-//     label: 100,
-//     description: 'businesses coached and scaled',
-//   },
-//   {
-//     icon: Briefcase,
-//     label: 1500,
-//     description: 'career transformations',
-//   },
-//   {
-//     icon: Users,
-//     label: 1000,
-//     description: 'event attendees',
-//   },
-// ];
-
 export default function AboutSection() {
   return (
     <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           
-          {/* ✅ Image Column (simplified) */}
+          {/* Image Column (simplified) */}
           <motion.div
             initial={{ x: -50, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
