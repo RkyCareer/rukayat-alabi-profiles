@@ -9,7 +9,7 @@ import Link from 'next/link';
 
 export default function HeroSection() {
   return (
-      <section className="bg-gradient-to-br from-rose-600 via-amber-600 to-amber-600 text-white rounded-lg shadow-lg relative overflow-hidden">
+      <section className="bg-gradient-to-br from-slate-800 to-slate-800 text-white rounded-lg shadow-lg relative overflow-hidden">
 
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
@@ -53,7 +53,7 @@ export default function HeroSection() {
 >
   <Link 
     href="/contact"
-    className="bg-slate-800 text-white hover:bg-amber-600 hover:text-slate-800 font-semibold px-8 py-3 rounded-md flex items-center gap-2 cursor-pointer transition-colors relative z-20" // Added z-20
+    className="bg-amber-600 text-white hover:bg-slate-800 hover:text-white font-semibold px-8 py-3 rounded-md flex items-center gap-2 cursor-pointer transition-colors relative z-20" // Added z-20
   >
     Engage Rukayat
     <ArrowRight className="ml-2 h-4 w-4" />

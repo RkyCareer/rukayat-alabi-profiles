@@ -16,8 +16,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'info@rukayatalabi.com',
-    href: 'mailto:info@rukayatalabi.com'
+    value: 'Rukayat.alabi@rkycareers.com',
+    href: 'mailto:Rukayat.alabi@rkycareers.com '
   },
   // {
   //   icon: Phone,

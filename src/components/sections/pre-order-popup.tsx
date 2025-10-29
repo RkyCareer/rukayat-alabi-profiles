@@ -27,11 +27,11 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import Image from 'next/image';
-import author from "@/assets/1.png";
+import author from "@/assets/about.jpg";
 
 //Validation schema
 const preorderSchema = z.object({
-  full_name: z.string().min(2, { message: 'Full name must be at least 2 characters.' }),
+ // full_name: z.string().min(2, { message: 'Full name must be at least 2 characters.' }),
   email: z.string().email({ message: 'Please enter a valid email address.' }),
 });
 
@@ -43,7 +43,7 @@ export function PreOrderPopup() {
 
   const form = useForm<z.infer<typeof preorderSchema>>({
     resolver: zodResolver(preorderSchema),
-    defaultValues: { full_name: '', email: '' },
+    defaultValues: { email: '' },
   });
 
   useEffect(() => {
@@ -61,7 +61,7 @@ export function PreOrderPopup() {
   const onSubmit = async (values: z.infer<typeof preorderSchema>) => {
     setIsSubmitting(true);
     try {
-      const res = await fetch('/api/pre-order', {
+      const res = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(values),
@@ -125,17 +125,17 @@ export function PreOrderPopup() {
 
                   <DialogHeader>
                     <DialogTitle className="text-3xl font-bold text-slate-800">
-                      Limited Time Offer!
+                        Stay Connected
                     </DialogTitle>
                     <DialogDescription className="text-slate-600 text-base mt-1">
-                      Pre order now and get exclusive bonuses.
+                  Join the Limitless Community, a global network of professionals and founders committed to thriving through change.
                     </DialogDescription>
                   </DialogHeader>
                 </div>
 
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
-                    <FormField
+                    {/* <FormField
                       control={form.control}
                       name="full_name"
                       render={({ field }) => (
@@ -151,14 +151,14 @@ export function PreOrderPopup() {
                           <FormMessage />
                         </FormItem>
                       )}
-                    />
+                    /> */}
 
                     <FormField
                       control={form.control}
                       name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-slate-900 text-base">Email Address</FormLabel>
+                          {/* <FormLabel className="text-slate-900 text-base">Email Address</FormLabel> */}
                           <FormControl>
                             <Input
                               type="email"
@@ -177,7 +177,7 @@ export function PreOrderPopup() {
                       disabled={isSubmitting}
                       className="w-full bg-amber-600 hover:bg-amber-700 text-white py-6 text-lg font-semibold rounded-lg shadow-lg transition-all hover:scale-105 disabled:opacity-50 disabled:hover:scale-100"
                     >
-                      {isSubmitting ? 'Submitting...' : 'Pre-Order Now'}
+                      {isSubmitting ? 'Joining...' : 'Join'}
                     </Button>
                   </form>
                 </Form>
@@ -192,16 +192,16 @@ export function PreOrderPopup() {
               >
                 <CheckCircle className="w-16 h-16 text-green-500 mx-auto" />
                 <h2 className="text-2xl font-bold text-slate-800">
-                  Thank you for your pre order!
+                  Thank you for Joining the Limitless Community
                 </h2>
                 <p className="text-slate-600 text-base">
-                  Your request has been received. I’ll reach out to you soon with more details.
+                 You will be receiving exclusive insights, event updates, and resources straight to your inbox.
                 </p>
                 <Button
                   onClick={resetForm}
                   className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-lg text-lg font-medium shadow-md"
                 >
-                  Submit another response
+                  Submit another email
                 </Button>
               </motion.div>
             )}
