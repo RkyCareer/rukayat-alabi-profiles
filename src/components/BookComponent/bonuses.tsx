@@ -7,7 +7,10 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Gift, FileText, Video, Headphones, ArrowRight } from 'lucide-react';
 //import { PreOrderPopup } from '../sections/pre-order-popup';
 //import { useToast } from '@/hooks/use-toast';
-import Link from 'next/link';
+//import Link from 'next/link';
+//import ClaimBonuses from './ClaimBonuses';
+import { useState } from 'react';
+import { ClaimBonuses } from './ClaimBonuses';
 
 const bonuses = [
   {
@@ -43,6 +46,7 @@ const bonuses = [
 export function Bonuses() {
   //const [showPopup, setShowPopup] = useState(false);
   //const { toast } = useToast();
+    const [openModal, setOpenModal] = useState(false);
 
   // const handleClaimBonus = () => {
   //   console.log("POPOOOOO")
@@ -125,7 +129,7 @@ export function Bonuses() {
           })}
         </div>
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -146,10 +150,33 @@ export function Bonuses() {
               </Link>
             </CardContent>
           </Card>
+        </motion.div> */}
+        <motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.6, delay: 0.4 }}
+  className="text-center"
+>
+  <Card className="inline-block bg-gradient-to-r from-amber-600 to-amber-700 border-0 shadow-2xl">
+    <CardContent className="p-8">
+      <p className="text-white text-lg mb-4">
+        Pre-order today and claim all bonuses instantly
+      </p>
 
-          {/* Popup Modal */}
-          {/* {showPopup && <PreOrderPopup />} */}
-        </motion.div>
+           <button
+              onClick={() => setOpenModal(true)}
+              className="flex items-center justify-center bg-white text-amber-700 hover:bg-slate-100 px-8 py-6 text-lg font-semibold rounded-full shadow-lg transition-all hover:scale-105"
+            >
+              Send a picture or video of you holding the book to claim your bonuses
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </button>
+    </CardContent>
+  </Card>
+  {openModal && (
+        <ClaimBonuses onClose={() => setOpenModal(false)} />
+      )}
+</motion.div>
       </div>
     </section>
   );
