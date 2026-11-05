@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Menu, X, Instagram, Linkedin, Mail } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, ChevronDown, Instagram, Linkedin, Mail } from 'lucide-react';
 import { navigationItems, socialLinks } from '@/constants/navigation';
 
 const iconMap = {
@@ -14,8 +14,29 @@ const iconMap = {
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isBooksOpen, setIsBooksOpen] = useState(false);
+  const [isMobileBooksOpen, setIsMobileBooksOpen] = useState(false);
+  const booksRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  // Reuse the existing Explore Book link for Limitless and Thriving
+  const exploreItem = navigationItems.find((item) => item.label === 'Explore Book');
+  const bookLinks = [
+    { label: 'Limitless and Thriving', href: exploreItem?.href ?? '/' },
+    { label: 'Before You Quit', href: '/coming-soon' },
+  ];
+
+  // Close the desktop dropdown when clicking outside it
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (booksRef.current && !booksRef.current.contains(event.target as Node)) {
+        setIsBooksOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <motion.nav
@@ -49,12 +70,61 @@ export default function Header() {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.3, delay: 0.1 * index }}
                 >
-                  <Link
-                    href={item.href}
-                    className="text-white hover:bg-amber-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
-                  >
-                    {item.label}
-                  </Link>
+                  {item.label === 'Explore Book' ? (
+                    <div
+                      ref={booksRef}
+                      className="relative"
+                      onMouseEnter={() => setIsBooksOpen(true)}
+                      onMouseLeave={() => setIsBooksOpen(false)}
+                    >
+                      <button
+                        type="button"
+                        onClick={() => setIsBooksOpen(!isBooksOpen)}
+                        className="flex items-center gap-1 text-white hover:bg-amber-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+                        aria-haspopup="true"
+                        aria-expanded={isBooksOpen}
+                      >
+                        {item.label}
+                        <ChevronDown
+                          className={`h-4 w-4 transition-transform duration-200 ${
+                            isBooksOpen ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </button>
+
+                      <AnimatePresence>
+                        {isBooksOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, y: -8 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -8 }}
+                            transition={{ duration: 0.15 }}
+                            className="absolute left-0 top-full pt-2 w-56"
+                          >
+                            <div className="bg-slate-800 border border-slate-700 rounded-md shadow-lg overflow-hidden">
+                              {bookLinks.map((book) => (
+                                <Link
+                                  key={book.href + book.label}
+                                  href={book.href}
+                                  onClick={() => setIsBooksOpen(false)}
+                                  className="block px-4 py-3 text-sm text-white hover:bg-amber-600 transition-colors duration-200"
+                                >
+                                  {book.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="text-white hover:bg-amber-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
                 </motion.div>
               ))}
             </div>
@@ -105,25 +175,60 @@ export default function Header() {
         {/* Mobile Menu */}
         <motion.div
           initial={{ height: 0, opacity: 0 }}
-          animate={{ 
-            height: isMenuOpen ? 'auto' : 0, 
-            opacity: isMenuOpen ? 1 : 0 
+          animate={{
+            height: isMenuOpen ? 'auto' : 0,
+            opacity: isMenuOpen ? 1 : 0,
           }}
           transition={{ duration: 0.3 }}
           className="md:hidden overflow-hidden"
         >
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navigationItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-white hover:bg-amber-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-            
+            {navigationItems.map((item) =>
+              item.label === 'Explore Book' ? (
+                <div key={item.href}>
+                  <button
+                    type="button"
+                    onClick={() => setIsMobileBooksOpen(!isMobileBooksOpen)}
+                    className="w-full flex items-center justify-between text-white hover:bg-amber-600 hover:text-white px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
+                  >
+                    {item.label}
+                    <ChevronDown
+                      className={`h-5 w-5 transition-transform duration-200 ${
+                        isMobileBooksOpen ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+
+                  {isMobileBooksOpen && (
+                    <div className="pl-6 space-y-1 mt-1">
+                      {bookLinks.map((book) => (
+                        <Link
+                          key={book.href + book.label}
+                          href={book.href}
+                          className="text-white hover:bg-amber-600 hover:text-white block px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+                          onClick={() => {
+                            setIsMenuOpen(false);
+                            setIsMobileBooksOpen(false);
+                          }}
+                        >
+                          {book.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-white hover:bg-amber-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
+
             {/* Mobile Social Links */}
             <div className="flex items-center space-x-4 pt-4 px-3">
               {socialLinks.map((link) => {
