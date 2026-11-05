@@ -101,13 +101,13 @@ export default function Header() {
                             transition={{ duration: 0.15 }}
                             className="absolute left-0 top-full pt-2 w-56"
                           >
-                            <div className="bg-slate-800 border border-slate-700 rounded-md shadow-lg overflow-hidden">
+                            <div className="bg-white border border-gray-200 rounded-md shadow-lg overflow-hidden">
                               {bookLinks.map((book) => (
                                 <Link
                                   key={book.href + book.label}
                                   href={book.href}
                                   onClick={() => setIsBooksOpen(false)}
-                                  className="block px-4 py-3 text-sm text-white hover:bg-amber-600 transition-colors duration-200"
+                                  className="block px-4 py-3 text-sm text-black hover:bg-amber-600 hover:text-white transition-colors duration-200"
                                 >
                                   {book.label}
                                 </Link>
