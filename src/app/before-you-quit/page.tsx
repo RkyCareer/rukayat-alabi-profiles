@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from '@assets';
 import { Anton, Syne } from 'next/font/google';
 import { motion } from 'framer-motion';
 import { ArrowRight, ChevronDown, Check, Gift } from 'lucide-react';
