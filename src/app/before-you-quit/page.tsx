@@ -6,7 +6,6 @@ import Image from 'next/image';
 import { Anton, Syne } from 'next/font/google';
 import { motion } from 'framer-motion';
 import { ArrowRight, ChevronDown, Check, Gift } from 'lucide-react';
-import { Testimonials } from "@/components/BookComponent/testimonials";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 
