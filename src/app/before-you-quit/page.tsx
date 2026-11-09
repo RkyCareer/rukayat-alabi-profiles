@@ -17,11 +17,11 @@ const syne = Syne({ weight: ['500', '700', '800'], subsets: ['latin'] }); // mat
 /*  EDIT THESE FIRST                                                          */
 /* -------------------------------------------------------------------------- */
 const PREORDER_URL = '#'; // paste your retailer link
-const RELEASE_DATE = '[release date]';
-const FORMATS = '[Paperback, Hardcover and E-book]';
-const BONUS_DEADLINE = '[deadline]';
-const BONUS_TIMING = '[timing]';
-const DISCOUNT = '[X]%';
+const RELEASE_DATE = 'Nov 5th 2026';
+const FORMATS = 'Hardcover and E-book';
+const BONUS_DEADLINE = 'Nov 30th 2026';
+const BONUS_TIMING = '11:59 PM';
+const DISCOUNT = '15%';
 
 // Which cover design the whole page uses: 'door' (orange suit) or 'pen' (white wave)
 const COVER: 'door' | 'pen' = 'door';
