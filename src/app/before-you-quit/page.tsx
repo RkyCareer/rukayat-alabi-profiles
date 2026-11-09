@@ -32,12 +32,12 @@ const PRAISE: { quote: string; name: string; role: string }[] = [];
 
 const COVERS = {
   door: {
-    standalone: '/asset/byq-door-cover.jpg',
-    spread: '/asset/byq-door-spread.jpg',
+    standalone: '/assets/byq-door-cover.jpg',
+    spread: '/assets/byq-door-spread.jpg',
   },
   pen: {
-    standalone: '/asset/byq-pen-cover.jpg',
-    spread: '/asset/byq-pen-spread.jpg',
+    standalone: '/assets/byq-pen-cover.jpg',
+    spread: '/assets/byq-pen-spread.jpg',
   },
 };
 /* -------------------------------------------------------------------------- */
