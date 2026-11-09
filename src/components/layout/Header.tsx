@@ -23,9 +23,9 @@ export default function Header() {
   // Reuse the existing Explore Book link for Limitless and Thriving
   const exploreItem = navigationItems.find((item) => item.label === 'Explore Book');
   const bookLinks = [
-    { label: 'Limitless and Thriving', href: exploreItem?.href ?? '/' },
-    { label: 'Before You Quit', href: '/coming-soon' },
-  ];
+  { label: 'Limitless and Thriving', href: exploreItem?.href ?? '/' },
+  { label: 'Before You Quit', href: '/before-you-quit' },
+];
 
   // Close the desktop dropdown when clicking outside it
   useEffect(() => {
