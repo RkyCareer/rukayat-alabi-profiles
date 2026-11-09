@@ -1,5 +1,10 @@
 'use client';
 
+import profileImg from '@/assets/profile.jpg';
+import doorCover from '@/assets/byq-door-cover.jpg';
+import doorSpread from '@/assets/byq-door-spread.jpg';
+import penCover from '@/assets/byq-pen-cover.jpg';
+import penSpread from '@/assets/byq-pen-spread.jpg';
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
