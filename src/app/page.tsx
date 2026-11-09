@@ -10,7 +10,7 @@ import BookSection from '@/components/sections/BookSection';
 import { PreOrderPopup } from '@/components/sections/pre-order-popup';
 import NewsletterSection from '@/components/sections/NewsletterSection';
 import ScholarshipSection from '@/components/sections/ScholarshipSection';
-import BookPromo from '@/components/sections/BookPromo';
+import BookPromo from '@/components/BookPromo';
 
 export default function Home() {
   return (
