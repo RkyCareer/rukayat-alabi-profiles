@@ -8,14 +8,13 @@ import penSpread from '@/assets/byq-pen-spread.jpg';
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Anton, Syne } from 'next/font/google';
 import { motion } from 'framer-motion';
 import { ArrowRight, ChevronDown, Check, Gift } from 'lucide-react';
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
 
-const anton = Anton({ weight: '400', subsets: ['latin'] }); // matches the condensed cover title
-const syne = Syne({ weight: ['500', '700', '800'], subsets: ['latin'] }); // matches the wide cover subtitle
+const anton = { className: '' };
+const syne = { className: '' };
 
 /* -------------------------------------------------------------------------- */
 /*  EDIT THESE FIRST                                                          */
