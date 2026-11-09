@@ -190,8 +190,10 @@ export default function BeforeYouQuitPage() {
     'w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 outline-none focus:border-orange-600 focus:ring-2 focus:ring-orange-600/30';
   const display = `${anton.className} uppercase leading-[0.95] tracking-tight`;
 
-  return (
-    <main className="bg-white text-slate-800">
+    return (
+    <>
+      <Header />
+      <main className="bg-white text-slate-800">
       {/* 1. HERO (light, so the white studio mockup blends in) */}
       <section className="relative overflow-hidden bg-white">
         <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 pb-14 pt-10 sm:px-6 lg:grid-cols-2 lg:gap-4 lg:px-8 lg:pb-20 lg:pt-16">
@@ -665,6 +667,8 @@ export default function BeforeYouQuitPage() {
         </a>
       </div>
       <div className="h-16 md:hidden" />
-    </main>
+          </main>
+      <Footer />
+    </>
   );
 }
