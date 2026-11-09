@@ -15,7 +15,7 @@ const syne = Syne({ weight: ['500', '700', '800'], subsets: ['latin'] }); // mat
 /* -------------------------------------------------------------------------- */
 /*  EDIT THESE FIRST                                                          */
 /* -------------------------------------------------------------------------- */
-const PREORDER_URL = '#'; // paste your retailer link
+const PREORDER_URL = 'https://selar.com/beforeyouquitthe9to5toownershiptransitionplan'; // paste your retailer link
 const RELEASE_DATE = 'Nov 5th 2026';
 const FORMATS = 'Hardcover and E-book';
 const BONUS_DEADLINE = 'Nov 30th 2026';
