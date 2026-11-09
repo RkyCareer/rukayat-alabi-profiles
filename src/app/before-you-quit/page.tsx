@@ -31,21 +31,22 @@ const DISCOUNT = '15%';
 const COVER: 'door' | 'pen' = 'door';
 
 // Her portrait for the author section. Save it in /public/asset/
-const AUTHOR_IMAGE = '/assets/profile.jpg';
+const AUTHOR_IMAGE = profileImg;
+
+const COVERS = {
+  door: {
+    standalone: doorCover,
+    spread: doorSpread,
+  },
+  pen: {
+    standalone: penCover,
+    spread: penSpread,
+  },
+};
 
 // Add two or three advance reader quotes and the section appears automatically
 const PRAISE: { quote: string; name: string; role: string }[] = [];
 
-const COVERS = {
-  door: {
-    standalone: '/assets/byq-door-cover.jpg',
-    spread: '/assets/byq-door-spread.jpg',
-  },
-  pen: {
-    standalone: '/assets/byq-pen-cover.jpg',
-    spread: '/assets/byq-pen-spread.jpg',
-  },
-};
 /* -------------------------------------------------------------------------- */
 
 const NAVY = 'bg-[#0b1530]';
