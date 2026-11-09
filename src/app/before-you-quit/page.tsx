@@ -26,7 +26,7 @@ const DISCOUNT = '15%';
 const COVER: 'door' | 'pen' = 'door';
 
 // Her portrait for the author section. Save it in /public/asset/
-const AUTHOR_IMAGE = '/asset/rukayat-portrait.jpg';
+const AUTHOR_IMAGE = '/assets/profile.jpg';
 
 // Add two or three advance reader quotes and the section appears automatically
 const PRAISE: { quote: string; name: string; role: string }[] = [];
